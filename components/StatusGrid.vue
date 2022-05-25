@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { PropType } from "vue"
+import { isSameDate } from "~~/utils/function"
 import { Report } from "~~/utils/interface"
 
 const props = defineProps({
@@ -20,10 +21,7 @@ const computedData = computed(() => {
   let dates = getDateArray(new Date(), 45)
   return dates.map((i) => {
     let dataGroupByDates: number[] = props.data
-      ?.filter((j) => {
-        let ndt = new Date(j.time)
-        return ndt.getDate() === i.getDate() && ndt.getMonth() === i.getMonth() && ndt.getFullYear() === i.getFullYear()
-      })
+      ?.filter((j) => isSameDate(i, j.time))
       .map((i) => (i.status === "success" ? 1 : 0))
 
     let uptime = dataGroupByDates?.length ? dataGroupByDates.reduce((a, v) => a + v, 0) / dataGroupByDates.length : -1

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import IconTick from "~icons/carbon/checkmark-filled"
 import { PropType } from "vue"
-import { formatUptime } from "~~/utils/function"
+import { formatUptime, statusString, statusColor } from "~~/utils/function"
 import { ParsedContent } from "@nuxt/content/dist/runtime/types"
 
 const props = defineProps({
@@ -16,7 +15,7 @@ const status = ref()
     <div class="mb-4 flex items-center justify-between">
       <div class="mx-0.5">
         <div class="flex items-center">
-          <IconTick class="text-xl text-purple-500"></IconTick>
+          <StatusIcon :uptime="status?.overallUptime"></StatusIcon>
           <h2 class="ml-2 text-xl">{{ meta_data.title }}</h2>
         </div>
         <h4 class="text-sm text-gray-400">{{ meta_data.url }}</h4>
