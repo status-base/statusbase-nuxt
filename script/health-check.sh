@@ -5,20 +5,24 @@ commit=true
 #   commit=false
 # fi
 
+FILESARRAY=()
 KEYSARRAY=()
 URLSARRAY=()
 
-urlsConfig="./script/urls.cfg"
-echo "Reading $urlsConfig"
-while read -r line
+for entry in content/url/*  
 do
-  echo "  $line"
-  IFS='=' read -ra TOKENS <<< "$line"
-  KEYSARRAY+=(${TOKENS[0]})
-  URLSARRAY+=(${TOKENS[1]})
-done < "$urlsConfig"
+  FILESARRAY+=(${entry})
+  LABELTOKEN=$( echo $entry | sed -e 's/content\/url\/\(.*\).yaml/\1/')
+  echo "Reading: ${entry}"
+  read -r line<${entry} 
+  IFS='"' read -ra URLTOKENS <<< "$line"
+  echo "   ${LABELTOKEN} = ${URLTOKENS[1]}"
+  KEYSARRAY+=(${LABELTOKEN})
+  URLSARRAY+=(${URLTOKENS[1]})
+done
 
-echo "***********************"
+
+echo "***********************" 
 echo "Starting health checks with ${#KEYSARRAY[@]} configs:"
 
 for (( index=0; index < ${#KEYSARRAY[@]}; index++))
