@@ -8,7 +8,7 @@ commit=true
 KEYSARRAY=()
 URLSARRAY=()
 
-urlsConfig="./urls.cfg"
+urlsConfig="./script/urls.cfg"
 echo "Reading $urlsConfig"
 while read -r line
 do
@@ -45,7 +45,7 @@ do
   
   if [[ $commit == true ]]
   then
-    filename="../content/log/${key}.csv"
+    filename="./content/log/${key}.csv"
     if [[  ! -e ${filename} ]]; then 
       echo "time, status" >> ${filename}
     fi
