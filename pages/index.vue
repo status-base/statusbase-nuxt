@@ -4,12 +4,6 @@ const { data } = await useAsyncData("reports", () => queryContent("/log").find()
 
 <template>
   <div class="bg-white p-8">
-    <ul>
-      <li v-for="a in data" :key="a._id">
-        <h2>{{ a.title }}</h2>
-        {{ a.body }}
-        <StatusGrid />
-      </li>
-    </ul>
+    <Card :data="report" v-for="report in data" :key="report._id"></Card>
   </div>
 </template>
