@@ -2,7 +2,7 @@ export const formatUptime = (data: number) => {
   if (data >= 0) {
     return (data * 100).toFixed(2) + "%"
   } else {
-    return "- %"
+    return "No data available"
   }
 }
 

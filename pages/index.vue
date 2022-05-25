@@ -24,7 +24,7 @@ console.log({ incidents })
       <h2 class="text-3xl">Recent Incident</h2>
     </div>
 
-    <div class="">
+    <div class="mt-8">
       <div class="mb-8" v-for="(incident, index) in incidents" :key="incident._id">
         <h3 class="text-xl my-4">{{ new Date(incident.date).toLocaleString() }}</h3>
         <div class="bg-gray-50 rounded-xl p-8">

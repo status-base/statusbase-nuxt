@@ -7,6 +7,8 @@ import Banner from "assets/banner.png"
     <img class="w-full h-54 object-cover" :src="Banner" />
     <div class="max-w-screen-md absolute top-0">
       <NuxtPage />
+
+      <Footer></Footer>
     </div>
   </div>
 </template>
