@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { statusColor } from "~~/utils/function"
+import { formatUptime, statusColor, statusString } from "~~/utils/function"
 
 const props = defineProps({
   date: Date,
@@ -10,5 +10,26 @@ const uptimeClass = computed(() => statusColor(props.uptime))
 </script>
 
 <template>
-  <div class="w-2 h-7 rounded cursor-pointer transform transition hover:scale-125" :class="uptimeClass"></div>
+  <ClientOnly>
+    <tippy interactive trigger="click mouseenter" placement="bottom">
+      <template #default="{ state }">
+        <button
+          class="w-2 h-7 rounded cursor-pointer transform transition hover:scale-125"
+          :class="[uptimeClass, { 'scale-125': state.isMounted }]"
+        ></button>
+      </template>
+
+      <template #content>
+        <div class="px-4 py-2 flex flex-col items-center">
+          <p>
+            {{ date.toDateString() }}
+          </p>
+          <p class="text-white text-center mt-2 px-4 py-2 rounded-lg" :class="uptimeClass">
+            {{ statusString(uptime, "message") }}
+          </p>
+          <p class="mt-2 text-sm text-gray-400">{{ formatUptime(uptime) }}</p>
+        </div>
+      </template>
+    </tippy>
+  </ClientOnly>
 </template>

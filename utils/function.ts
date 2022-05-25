@@ -1,5 +1,9 @@
 export const formatUptime = (data: number) => {
-  return ((data ?? 0) * 100).toFixed(2) + "%"
+  if (data >= 0) {
+    return (data * 100).toFixed(2) + "%"
+  } else {
+    return "- %"
+  }
 }
 
 export const isSameDate = (a: string | Date, b: string | Date) => {
@@ -20,14 +24,14 @@ export const statusColor = (uptime: number, type = "bg") => {
   }
 }
 
-export const statusString = (uptime: number, type = "bg") => {
-  if (uptime >= 0.75) {
-    return "success"
+export const statusString = (uptime: number, type = "state") => {
+  if (uptime >= 0.85) {
+    return type === "state" ? "success" : "Fully operational"
   } else if (uptime >= 0.5) {
-    return "warning"
+    return type === "state" ? "warning" : "Partial Outage"
   } else if (uptime >= 0) {
-    return "danger"
+    return type === "state" ? "danger" : "Major Outage"
   } else {
-    return "unknown"
+    return type === "state" ? "unknown" : "Unknown"
   }
 }

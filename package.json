@@ -13,6 +13,7 @@
     "unplugin-icons": "^0.14.3"
   },
   "dependencies": {
-    "@iconify-json/carbon": "^1.1.5"
+    "@iconify-json/carbon": "^1.1.5",
+    "vue-tippy": "^6.0.0-alpha.58"
   }
 }
