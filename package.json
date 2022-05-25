@@ -9,6 +9,10 @@
   "devDependencies": {
     "@nuxt/content": "^2.0.0",
     "nuxt": "3.0.0-rc.3",
-    "nuxt-windicss": "^2.3.2"
+    "nuxt-windicss": "^2.3.2",
+    "unplugin-icons": "^0.14.3"
+  },
+  "dependencies": {
+    "@iconify-json/carbon": "^1.1.5"
   }
 }
