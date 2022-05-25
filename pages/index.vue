@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { data: urls } = await useAsyncData("urls", () => queryContent("/url").find())
-const { data: reports } = await useAsyncData("reports", () => queryContent("/log").find())
+const { data: urls } = await useAsyncData("urls", () => queryContent("/urls").find())
+const { data: reports } = await useAsyncData("reports", () => queryContent("/logs").find())
 </script>
 
 <template>
@@ -15,6 +15,10 @@ const { data: reports } = await useAsyncData("reports", () => queryContent("/log
 
     <div class="flex flex-col items-center">
       <Card :meta_data="url" :report_data="reports[index]" v-for="(url, index) in urls" :key="url._id"></Card>
+    </div>
+
+    <div class="mt-20 font-semibold inline-flex items-end">
+      <h2 class="text-3xl">Recent Incident</h2>
     </div>
   </div>
 </template>

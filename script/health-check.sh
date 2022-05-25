@@ -9,10 +9,10 @@ FILESARRAY=()
 KEYSARRAY=()
 URLSARRAY=()
 
-for entry in content/url/*  
+for entry in content/urls/*  
 do
   FILESARRAY+=(${entry})
-  LABELTOKEN=$( echo $entry | sed -e 's/content\/url\/\(.*\).yaml/\1/')
+  LABELTOKEN=$( echo $entry | sed -e 's/content\/urls\/\(.*\).yaml/\1/')
   echo "Reading: ${entry}"
   read -r line<${entry} 
   IFS='"' read -ra URLTOKENS <<< "$line"
@@ -49,7 +49,7 @@ do
   
   if [[ $commit == true ]]
   then
-    filename="./content/log/${key}.csv"
+    filename="./content/logs/${key}.csv"
     if [[  ! -e ${filename} ]]; then 
       echo "time, status" >> ${filename}
     fi
@@ -66,7 +66,7 @@ if [[ $commit == true ]]
 then 
   git config --global user.name 'zernonia'
   git config --global user.email 'zernonia@gmail.com'
-  git add -A --force content/log/
+  git add -A --force content/logs/
   git commit -am '[Automated] Update Health Check Logs'
   git push
 fi
