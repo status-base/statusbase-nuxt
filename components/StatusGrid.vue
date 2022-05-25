@@ -34,6 +34,13 @@ const computedData = computed(() => {
     }
   })
 })
+
+const overallUptime = computed(() => {
+  let dateWithUptimeData = computedData.value.filter((i) => i.uptime >= 0)
+  return dateWithUptimeData.reduce((a, v) => a + v.uptime, 0) / dateWithUptimeData.length
+})
+
+defineExpose({ overallUptime })
 </script>
 
 <template>
