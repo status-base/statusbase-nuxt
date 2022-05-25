@@ -2,7 +2,7 @@ name: Scheduled Health Check
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "*/30 * * * *"
 jobs:
   health_check_job:
     runs-on: ubuntu-latest
