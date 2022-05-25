@@ -1,18 +1,28 @@
 <script setup lang="ts">
-import { ParsedContent } from "@nuxt/content/dist/runtime/types"
+import IconTick from "~icons/carbon/checkmark-filled"
 import { PropType } from "vue"
+import { formatUptime } from "~~/utils/function"
+import { ParsedContent } from "@nuxt/content/dist/runtime/types"
 
 const props = defineProps({
-  data: Object as PropType<ParsedContent>,
+  meta_data: Object as PropType<ParsedContent>,
+  report_data: Object as PropType<ParsedContent>,
 })
-const grid = ref()
+const status = ref()
 </script>
 
 <template>
-  <div>
-    <h2>{{ data.title }}</h2>
-    {{ data.body }}
-    {{ grid?.overallUptime }}
-    <StatusGrid ref="grid" :data="data.body" />
+  <div class="p-6 my-6">
+    <div class="mb-4 flex items-center justify-between">
+      <div class="mx-0.5">
+        <div class="flex items-center">
+          <IconTick class="text-xl text-purple-500"></IconTick>
+          <h2 class="ml-2 text-xl">{{ meta_data.title }}</h2>
+        </div>
+        <h4 class="text-sm">{{ meta_data.url }}</h4>
+      </div>
+      <p class="ml-6 text-xl text-gray-400">{{ formatUptime(status?.overallUptime) }}</p>
+    </div>
+    <StatusGrid ref="status" :data="report_data.body" />
   </div>
 </template>

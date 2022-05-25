@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PropType } from "vue"
-import { Report } from "~~/interface"
+import { Report } from "~~/utils/interface"
 
 const props = defineProps({
   data: Object as PropType<Report[]>,
@@ -17,7 +17,7 @@ const getDateArray = function (start: Date, days: number) {
 }
 
 const computedData = computed(() => {
-  let dates = getDateArray(new Date(), 30)
+  let dates = getDateArray(new Date(), 45)
   return dates.map((i) => {
     let dataGroupByDates: number[] = props.data
       ?.filter((j) => {

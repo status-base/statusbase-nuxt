@@ -1,5 +1,5 @@
 body {
-  @apply min-h-screen bg-light-300;
+  @apply min-h-screen;
 }
 #__nuxt {
   @apply w-full flex flex-col items-center;
