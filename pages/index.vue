@@ -24,12 +24,13 @@ console.log({ incidents })
       <h2 class="text-3xl">Recent Incident</h2>
     </div>
 
-    <div class="p-8 mt-6 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50">
+    <div class="">
       <div class="mb-8" v-for="(incident, index) in incidents" :key="incident._id">
-        <h3 class="text-lg font-medium mb-4">{{ incident.date }}</h3>
-        <ContentRenderer class="prose-sm" :value="incident" />
-
-        <hr class="mt-6" />
+        <h3 class="text-xl my-4">{{ new Date(incident.date).toLocaleString() }}</h3>
+        <div class="bg-gray-50 rounded-xl p-8">
+          <p v-if="incident.resolved" class="px-4 py-2 mb-4 rounded-xl text-white bg-purple-500 w-max">Resolved</p>
+          <ContentRenderer class="prose max-w-none" :value="incident" />
+        </div>
       </div>
     </div>
   </div>
