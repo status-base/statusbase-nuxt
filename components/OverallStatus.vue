@@ -9,9 +9,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex justify-center transform -translate-y-6">
+  <div class="flex justify-center">
     <div
-      class="max-w-screen-md w-full bg-white p-8 flex items-center rounded-xl shadow-lg text-purple-500 text-3xl font-semibold"
+      class="w-full bg-white p-8 flex items-center rounded-xl shadow-lg shadow-purple-100 text-purple-500 text-3xl font-medium"
     >
       <IconTick></IconTick>
       <h2 class="ml-6">All Systems Operational</h2>

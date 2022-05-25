@@ -18,5 +18,5 @@ const uptimeClass = computed(() => {
 </script>
 
 <template>
-  <div class="w-2 h-7 rounded mx-1" :class="uptimeClass"></div>
+  <div class="w-2 h-7 rounded cursor-pointer transform transition hover:scale-125" :class="uptimeClass"></div>
 </template>

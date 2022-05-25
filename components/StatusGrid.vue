@@ -44,7 +44,7 @@ defineExpose({ overallUptime })
 </script>
 
 <template>
-  <div class="flex">
+  <div class="flex justify-between">
     <template v-for="data in computedData">
       <Status v-bind="data"></Status>
     </template>

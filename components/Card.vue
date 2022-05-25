@@ -12,14 +12,14 @@ const status = ref()
 </script>
 
 <template>
-  <div class="p-6 my-6">
+  <div class="my-10 w-full">
     <div class="mb-4 flex items-center justify-between">
       <div class="mx-0.5">
         <div class="flex items-center">
           <IconTick class="text-xl text-purple-500"></IconTick>
           <h2 class="ml-2 text-xl">{{ meta_data.title }}</h2>
         </div>
-        <h4 class="text-sm">{{ meta_data.url }}</h4>
+        <h4 class="text-sm text-gray-400">{{ meta_data.url }}</h4>
       </div>
       <p class="ml-6 text-xl text-gray-400">{{ formatUptime(status?.overallUptime) }}</p>
     </div>
