@@ -21,7 +21,7 @@ const { data } = await useFetch<{ stargazers_count: number }>("https://api.githu
     </div>
     <div class="flex-col mr-3 md:mr-6">
       <h3 style="font-size: 9px" class="uppercase">Star on</h3>
-      <h2 class="leading-4 font-semibold md:text-xl">GitHub</h2>
+      <h2 class="!leading-4 font-semibold md:text-xl">GitHub</h2>
     </div>
     <div class="flex flex-col items-center mr-2">
       <IconUp class="w-3 h-3 mt-1 transform -rotate-90"></IconUp>
