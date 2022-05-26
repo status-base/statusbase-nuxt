@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { ParsedContent } from "@nuxt/content/dist/runtime/types"
 import { PropType } from "vue"
-import { isSameDate } from "~~/utils/function"
 import { Report } from "~~/utils/interface"
 
 const props = defineProps({
-  report_data: Object as PropType<ParsedContent[]>,
+  report_data: Object as PropType<ParsedContent[] | Pick<ParsedContent, string>>,
 })
+const { $dayjs } = useNuxtApp()
 
 const overallUptime = computed(() => {
   let uptime = 1
-  props.report_data.forEach((i) => {
+  let report_data = Array.isArray(props.report_data) ? props.report_data : [props.report_data]
+  report_data.forEach((i) => {
     let todayData: number[] = i.body
-      .filter((j: Report) => isSameDate(j.time, new Date()))
+      .filter((j: Report) => $dayjs.utc(j.time).isToday())
       .map((j: Report) => (j.status === "success" ? 1 : 0))
     let averageUptime = todayData.reduce((a, v) => a + v, 0) / todayData.length
     if (averageUptime >= 0 && averageUptime < 0.5) {
