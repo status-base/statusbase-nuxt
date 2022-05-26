@@ -6,6 +6,7 @@ import { PropType } from "vue"
 const props = defineProps({
   date: Object as PropType<Dayjs>,
   uptime: Number,
+  count: Number,
 })
 
 const uptimeClass = computed(() => statusColor(props.uptime))

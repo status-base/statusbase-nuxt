@@ -29,13 +29,17 @@ const computedData = computed(() => {
     return {
       date: i,
       uptime,
+      count: dataGroupByDates.length,
     }
   })
 })
 
 const overallUptime = computed(() => {
   let dateWithUptimeData = computedData.value.filter((i) => i.uptime >= 0)
-  return dateWithUptimeData.reduce((a, v) => a + v.uptime, 0) / dateWithUptimeData.length
+
+  return (
+    dateWithUptimeData.reduce((a, v) => a + v.uptime * v.count, 0) / dateWithUptimeData.reduce((a, v) => a + v.count, 0)
+  )
 })
 
 defineExpose({ overallUptime })
