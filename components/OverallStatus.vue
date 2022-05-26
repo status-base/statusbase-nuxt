@@ -8,19 +8,37 @@ const props = defineProps({
 })
 const { $dayjs } = useNuxtApp()
 
-const overallUptime = computed(() => {
-  let uptime = 1
+const todayUptimeList = computed(() => {
   let report_data = Array.isArray(props.report_data) ? props.report_data : [props.report_data]
-  report_data.forEach((i) => {
+  return report_data.map((i) => {
     let todayData: number[] = i.body
       .filter((j: Report) => $dayjs.utc(j.time).isToday())
       .map((j: Report) => (j.status === "success" ? 1 : 0))
-    let averageUptime = todayData.reduce((a, v) => a + v, 0) / todayData.length
-    if (averageUptime >= 0 && averageUptime < 0.5) {
-      uptime = 0
-    }
+
+    return todayData.reduce((a, v) => a + v, 0) / todayData.length
   })
-  return uptime
+})
+
+const todayOverallUptime = computed(() => {
+  if (todayUptimeList.value.find((i) => i >= 0 && i < 0.5)) {
+    return 0
+  } else if (todayUptimeList.value.find((i) => i >= 0.5 && i < 0.85)) {
+    return 0.5
+  } else {
+    return 1
+  }
+})
+const todayOverallMessage = computed(() => {
+  const majorOutageCount = todayUptimeList.value.filter((i) => i >= 0 && i < 0.5).length
+  const partialOutageCount = todayUptimeList.value.filter((i) => i >= 0.5 && i < 0.85).length
+
+  if (majorOutageCount) {
+    return `${majorOutageCount} Major Outage`
+  } else if (partialOutageCount) {
+    return `${partialOutageCount} Partial Outage`
+  } else {
+    return "All Systems Operational"
+  }
 })
 </script>
 
@@ -29,8 +47,8 @@ const overallUptime = computed(() => {
     <div
       class="w-full bg-white p-6 md:p-8 flex items-center rounded-xl shadow-lg shadow-purple-100 text-purple-500 text-xl md:text-3xl font-medium"
     >
-      <StatusIcon :uptime="overallUptime" class="md:text-3xl" />
-      <h2 class="ml-3 md:ml-6">All Systems Operational</h2>
+      <StatusIcon :uptime="todayOverallUptime" class="md:text-3xl" />
+      <h2 class="ml-3 md:ml-6">{{ todayOverallMessage }}</h2>
     </div>
   </div>
 </template>
