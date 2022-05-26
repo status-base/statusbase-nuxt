@@ -1,6 +1,6 @@
 export const useCustomHead = (
-  title: string,
-  description = "Free & Open Source uptime monitoring tool and beautiful status pages with incidents notifications. Powered by Nuxt Content!",
+  title = "StatusBase",
+  description = "Free & Open Source uptime monitoring tool and beautiful status pages with incidents reports. Powered by Nuxt Content!",
   image = "https://statusbase.vercel.app/og.png"
 ) => {
   useHead({
