@@ -11,6 +11,7 @@ const { $dayjs } = useNuxtApp()
 const todayUptimeList = computed(() => {
   let report_data = Array.isArray(props.report_data) ? props.report_data : [props.report_data]
   return report_data.map((i) => {
+    if (!i) return
     let todayData: number[] = i.body
       .filter((j: Report) => $dayjs.utc(j.time).isToday())
       .map((j: Report) => (j.status === "success" ? 1 : 0))

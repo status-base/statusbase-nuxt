@@ -22,6 +22,6 @@ const status = ref()
       </div>
       <p class="ml-3 md:text-xl text-gray-400">{{ formatUptime(status?.overallUptime) }}</p>
     </div>
-    <StatusGrid ref="status" :data="report_data.body" />
+    <StatusGrid ref="status" :data="report_data?.body" />
   </div>
 </template>

@@ -14,7 +14,7 @@ const { $dayjs } = useNuxtApp()
   </div>
 
   <div class="mt-4 md:mt-8">
-    <div v-if="incidents.length == 0">
+    <div v-if="!incidents || incidents.length == 0">
       <div class="bg-gray-50 rounded-xl p-8 h-48 flex items-center justify-center">No incident reported</div>
     </div>
     <div v-else class="mb-8" v-for="(incident, index) in incidents" :key="incident._id">

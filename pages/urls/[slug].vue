@@ -4,8 +4,8 @@ const {
 } = useRoute()
 
 const { data: url } = await useAsyncData(`url-${slug}`, () => queryContent(`/urls/${slug}`).findOne())
-const { data: log } = await useAsyncData(`log-${slug}`, () => queryContent(`/logs/${slug}`).findOne())
-const { data: incidents } = await useAsyncData(`incident-${slug}`, () =>
+const { data: log } = await useLazyAsyncData(`log-${slug}`, () => queryContent(`/logs/${slug}`).findOne())
+const { data: incidents } = await useLazyAsyncData(`incident-${slug}`, () =>
   queryContent("/incidents")
     .where({ application: { $contains: slug } })
     .sort({ title: 0 })

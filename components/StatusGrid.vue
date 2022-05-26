@@ -6,7 +6,6 @@ import dayjs, { Dayjs } from "dayjs/esm"
 const props = defineProps({
   data: Object as PropType<Report[]>,
 })
-
 const gridCount = useGridCount()
 const getDateArray = function (start: Date, days: number) {
   var arr: Dayjs[] = []
@@ -29,7 +28,7 @@ const computedData = computed(() => {
     return {
       date: i,
       uptime,
-      count: dataGroupByDates.length,
+      count: dataGroupByDates?.length,
     }
   })
 })
@@ -46,9 +45,10 @@ defineExpose({ overallUptime })
 </script>
 
 <template>
-  <div class="flex justify-between">
-    <template v-for="data in computedData">
+  <div v-if="data" class="flex justify-between">
+    <template v-for="data in computedData" :key="data.date">
       <Status v-bind="data"></Status>
     </template>
   </div>
+  <div v-else>loading...</div>
 </template>
