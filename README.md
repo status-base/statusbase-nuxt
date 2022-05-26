@@ -13,11 +13,11 @@
     <strong>Free • Open Source • API ready </strong>
     <br />
     <br />
-    <a href="https://statusbase.vercel.app/">View Demo</a>
+    <a target="_blank" href="https://statusbase.vercel.app/">View Demo</a>
     ·
-    <a href="https://github.com/zernonia/statusbase/issues">Report Bug</a>
+    <a target="_blank" href="https://github.com/zernonia/statusbase/issues">Report Bug</a>
     ·
-    <a href="https://github.com/zernonia/statusbase/issues">Request Feature</a>
+    <a target="_blank" href="https://github.com/zernonia/statusbase/issues">Request Feature</a>
   </p>
 </p>
 
@@ -92,5 +92,5 @@ Zernonia - [@zernonia](https://twitter.com/zernonia) - zernonia@gmail.com
 Also, if you like my work, please buy me a coffee ☕😳
 
 <a href="https://www.buymeacoffee.com/zernonia" target="_blank">
-    <img width=200 src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Logo" >
-  </a>
+  <img width=200 src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Logo" >
+</a>
