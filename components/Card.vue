@@ -20,7 +20,12 @@ const status = ref()
         </div>
         <h4 class="text-sm text-gray-400">{{ meta_data.url }}</h4>
       </div>
-      <p class="ml-3 md:text-xl text-gray-400">{{ formatUptime(status?.overallUptime) }}</p>
+      <div>
+        <p v-if="status?.overallUptime" class="ml-3 md:text-xl text-gray-400">
+          {{ formatUptime(status?.overallUptime) }}
+        </p>
+        <div v-else class="bg-gray-100 rounded-lg w-24 h-7 animate-pulse"></div>
+      </div>
     </div>
     <StatusGrid ref="status" :data="report_data?.body" />
   </div>
