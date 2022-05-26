@@ -50,5 +50,5 @@ defineExpose({ overallUptime })
       <Status v-bind="data"></Status>
     </template>
   </div>
-  <div v-else>loading...</div>
+  <div v-else class="h-8.5 w-full bg-gray-100 rounded-lg animate-pulse"></div>
 </template>
