@@ -1,0 +1,31 @@
+<script setup lang="ts">
+import IconGitHub from "~icons/carbon/logo-github"
+import IconUp from "~icons/carbon/play-filled-alt"
+
+const { data } = await useFetch<{ stargazers_count: number }>("https://api.github.com/repos/zernonia/statusbase", {
+  pick: ["stargazers_count"],
+})
+</script>
+
+<template>
+  <a
+    rel="noopener"
+    class="bg-white rounded-lg p-2 shadow-lg shadow-purple-100 text-gray-300 hover:text-gray-700 transition flex items-center"
+    style="font-family: Arial, Helvetica, sans-serif; height: 54px"
+    href="https://github.com/zernonia/statusbase"
+    target="_blank"
+    aria-label="Star zernonia/statusbase on GitHub"
+  >
+    <div class="mr-2 inline-flex">
+      <IconGitHub class="w-9 h-9"></IconGitHub>
+    </div>
+    <div class="flex-col mr-6">
+      <h3 style="font-size: 9px" class="uppercase">Star on</h3>
+      <h2 class="leading-4 font-semibold md:text-xl">GitHub</h2>
+    </div>
+    <div class="flex flex-col items-center mr-2">
+      <IconUp class="w-3 h-3 mt-1 transform -rotate-90"></IconUp>
+      <span class="text-sm">{{ data.stargazers_count ?? 0 }}</span>
+    </div>
+  </a>
+</template>
