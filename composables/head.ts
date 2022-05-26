@@ -5,7 +5,8 @@ export const useCustomHead = (
 ) => {
   useHead({
     title,
-    viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+    htmlAttrs: { lang: "en" },
+    viewport: "width=device-width, initial-scale=1",
     charset: "utf-8",
     link: [{ rel: "icon", href: "/favicon.png" }],
     meta: [

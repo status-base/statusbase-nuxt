@@ -16,10 +16,10 @@ const uptimeClass = computed(() => statusColor(props.uptime))
   <ClientOnly>
     <tippy interactive trigger="click mouseenter" placement="bottom">
       <template #default="{ state }">
-        <button
+        <div
           class="w-2 h-7 rounded cursor-pointer transform transition hover:scale-125"
           :class="[uptimeClass, { 'scale-125': state.isMounted }]"
-        ></button>
+        ></div>
       </template>
 
       <template #content>
