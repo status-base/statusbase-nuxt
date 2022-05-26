@@ -26,10 +26,10 @@ const overallUptime = computed(() => {
 <template>
   <div class="flex justify-center">
     <div
-      class="w-full bg-white p-8 flex items-center rounded-xl shadow-lg shadow-purple-100 text-purple-500 text-3xl font-medium"
+      class="w-full bg-white p-6 md:p-8 flex items-center rounded-xl shadow-lg shadow-purple-100 text-purple-500 text-xl md:text-3xl font-medium"
     >
-      <StatusIcon :uptime="overallUptime" class="text-3xl" />
-      <h2 class="ml-6">All Systems Operational</h2>
+      <StatusIcon :uptime="overallUptime" class="md:text-3xl" />
+      <h2 class="ml-3 md:ml-6">All Systems Operational</h2>
     </div>
   </div>
 </template>

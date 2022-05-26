@@ -11,7 +11,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="inline-flex text-xl">
+  <div class="inline-flex md:text-xl">
     <IconTick v-if="statusString(uptime) == 'success'" class="text-purple-500"></IconTick>
     <IconWarning v-else-if="statusString(uptime) == 'warning'" class="text-yellow-300"></IconWarning>
     <IconDanger v-else-if="statusString(uptime) == 'danger'" class="text-red-400"></IconDanger>
