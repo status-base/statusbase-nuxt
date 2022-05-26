@@ -1,7 +1,7 @@
 export const useCustomHead = (
   title: string,
   description = "Free & Open Source uptime monitoring tool and beautiful status pages with incidents notifications. Powered by Nuxt Content!",
-  image = "https://tweetic.io/og.png"
+  image = "https://statusbase.vercel.app/og.png"
 ) => {
   useHead({
     title,
