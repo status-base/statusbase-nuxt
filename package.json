@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@iconify-json/carbon": "^1.1.5",
+    "dayjs": "^1.11.2",
     "vue-tippy": "^6.0.0-alpha.58"
   }
 }

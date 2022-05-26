@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { formatUptime, statusColor, statusString } from "~~/utils/function"
+import { Dayjs } from "dayjs/esm"
+import { PropType } from "vue"
 
 const props = defineProps({
-  date: Date,
+  date: Object as PropType<Dayjs>,
   uptime: Number,
 })
 
@@ -22,7 +24,7 @@ const uptimeClass = computed(() => statusColor(props.uptime))
       <template #content>
         <div class="px-4 py-2 flex flex-col items-center">
           <p>
-            {{ date.toDateString() }}
+            {{ date }}
           </p>
           <p class="text-white text-center mt-2 px-4 py-2 rounded-lg" :class="uptimeClass">
             {{ statusString(uptime, "message") }}

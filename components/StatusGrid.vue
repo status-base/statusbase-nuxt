@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import { PropType } from "vue"
-import { isSameDate } from "~~/utils/function"
 import { Report } from "~~/utils/interface"
+import dayjs, { Dayjs } from "dayjs/esm"
 
 const props = defineProps({
   data: Object as PropType<Report[]>,
 })
 
 const getDateArray = function (start: Date, days: number) {
-  var arr: Date[] = []
-  for (let i = days; i > 0; i--) {
-    let dt = new Date(start)
-    dt.setDate(dt.getDate() - i + 1)
-    arr.push(new Date(dt))
+  var arr: Dayjs[] = []
+  for (let i = days - 1; i >= 0; i--) {
+    let dt = dayjs.utc(start).subtract(i, "day")
+    arr.push(dt)
   }
   return arr
 }
@@ -21,7 +20,7 @@ const computedData = computed(() => {
   let dates = getDateArray(new Date(), 45)
   return dates.map((i) => {
     let dataGroupByDates: number[] = props.data
-      ?.filter((j) => isSameDate(i, j.time))
+      ?.filter((j) => i.isSame(dayjs.utc(j.time), "day"))
       .map((i) => (i.status === "success" ? 1 : 0))
 
     let uptime = dataGroupByDates?.length ? dataGroupByDates.reduce((a, v) => a + v, 0) / dataGroupByDates.length : -1
