@@ -13,7 +13,7 @@ export const isSameDate = (a: string | Date, b: string | Date) => {
 }
 
 export const statusColor = (uptime: number, type = "bg") => {
-  if (uptime >= 0.75) {
+  if (uptime >= 0.9) {
     return `${type}-purple-500`
   } else if (uptime >= 0.5) {
     return `${type}-yellow-400`
@@ -25,7 +25,7 @@ export const statusColor = (uptime: number, type = "bg") => {
 }
 
 export const statusString = (uptime: number, type = "state") => {
-  if (uptime >= 0.85) {
+  if (uptime >= 0.9) {
     return type === "state" ? "success" : "Fully operational"
   } else if (uptime >= 0.5) {
     return type === "state" ? "warning" : "Partial Outage"
