@@ -12,6 +12,7 @@ const { data: incidents } = await useAsyncData(`incident-${slug}`, () =>
     .find()
 )
 const gridCount = useGridCount()
+useCustomHead(`${url.value.title} Status Page | StatusBase`)
 </script>
 
 <template>

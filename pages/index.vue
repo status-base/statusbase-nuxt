@@ -4,6 +4,7 @@ const { data: logs } = await useAsyncData("logs", () => queryContent("/logs").fi
 const { data: incidents } = await useAsyncData("reports", () => queryContent("/incidents").sort({ title: 0 }).find())
 
 const gridCount = useGridCount()
+useCustomHead("StatusBase Status Page")
 </script>
 
 <template>
