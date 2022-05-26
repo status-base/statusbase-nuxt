@@ -16,7 +16,7 @@ const status = ref()
       <div class="mx-0.5 truncate">
         <div class="flex items-center">
           <StatusIcon :uptime="status?.overallUptime"></StatusIcon>
-          <h2 class="ml-2 md:text-xl">{{ meta_data.title }}</h2>
+          <NuxtLink :to="meta_data._path" class="ml-2 md:text-xl">{{ meta_data.title }}</NuxtLink>
         </div>
         <h4 class="text-sm text-gray-400">{{ meta_data.url }}</h4>
       </div>
