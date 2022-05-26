@@ -8,7 +8,6 @@ const gridCount = useGridCount()
 
 <template>
   <div class="">
-    <h1 class="text-white text-3xl md:text-4xl font-semibold mt-20 mb-10">StatusBase</h1>
     <OverallStatus :report_data="logs"></OverallStatus>
 
     <div class="mt-12 md:mt-20 font-semibold inline-flex items-end">
@@ -20,18 +19,6 @@ const gridCount = useGridCount()
       <Card :meta_data="url" :report_data="logs[index]" v-for="(url, index) in urls" :key="url._id"></Card>
     </div>
 
-    <div class="mt-12 md:mt-20 font-semibold inline-flex items-end">
-      <h2 class="text-xl md:text-3xl">Recent Incident</h2>
-    </div>
-
-    <div class="mt-4 md:mt-8">
-      <div class="mb-8" v-for="(incident, index) in incidents" :key="incident._id">
-        <h3 class="md:text-xl my-4">{{ new Date(incident.date).toLocaleString() }}</h3>
-        <div class="bg-gray-50 rounded-xl p-8">
-          <p v-if="incident.resolved" class="px-4 py-2 mb-4 rounded-xl text-white bg-purple-500 w-max">Resolved</p>
-          <ContentRenderer class="prose max-w-none" :value="incident" />
-        </div>
-      </div>
-    </div>
+    <IncidentReport :incidents="incidents"></IncidentReport>
   </div>
 </template>
