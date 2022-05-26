@@ -17,9 +17,9 @@ const { data } = await useFetch<{ stargazers_count: number }>("https://api.githu
     aria-label="Star zernonia/statusbase on GitHub"
   >
     <div class="mr-2 inline-flex">
-      <IconGitHub class="w-9 h-9"></IconGitHub>
+      <IconGitHub class="w-7 h-7 md:w-9 md:h-9"></IconGitHub>
     </div>
-    <div class="flex-col mr-6">
+    <div class="flex-col mr-3 md:mr-6">
       <h3 style="font-size: 9px" class="uppercase">Star on</h3>
       <h2 class="leading-4 font-semibold md:text-xl">GitHub</h2>
     </div>

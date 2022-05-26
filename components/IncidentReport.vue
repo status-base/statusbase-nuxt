@@ -19,7 +19,7 @@ const { $dayjs } = useNuxtApp()
     </div>
     <div v-else class="mb-8" v-for="(incident, index) in incidents" :key="incident._id">
       <h3 class="md:text-xl my-4">{{ $dayjs.utc(incident.date) }}</h3>
-      <div class="bg-gray-50 rounded-xl p-8">
+      <div class="bg-gray-50 rounded-xl p-4 md:p-8">
         <p v-if="incident.resolved" class="px-4 py-2 mb-4 rounded-xl text-white bg-purple-500 w-max">Resolved</p>
         <ContentRenderer class="prose max-w-none" :value="incident" />
       </div>
