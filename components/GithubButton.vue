@@ -10,7 +10,7 @@ const { data } = await useFetch<{ stargazers_count: number }>("https://api.githu
 <template>
   <a
     rel="noopener"
-    class="bg-white rounded-lg p-2 shadow-lg shadow-purple-100 text-gray-300 hover:text-gray-700 transition flex items-center"
+    class="bg-white rounded-lg p-2 shadow-lg shadow-purple-100 text-gray-400 hover:text-gray-700 transition flex items-center"
     style="font-family: Arial, Helvetica, sans-serif; height: 54px"
     href="https://github.com/zernonia/statusbase"
     target="_blank"

@@ -15,6 +15,6 @@ const props = defineProps({
     <IconTick v-if="statusString(uptime) == 'success'" class="text-purple-500"></IconTick>
     <IconWarning v-else-if="statusString(uptime) == 'warning'" class="text-yellow-300"></IconWarning>
     <IconDanger v-else-if="statusString(uptime) == 'danger'" class="text-red-400"></IconDanger>
-    <IconUnknown v-else-if="statusString(uptime) == 'unknown'" class="text-gray-300"></IconUnknown>
+    <IconUnknown v-else-if="statusString(uptime) == 'unknown'" class="text-gray-400"></IconUnknown>
   </div>
 </template>
