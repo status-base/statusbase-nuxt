@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PropType } from "vue"
-import { formatUptime, statusString, statusColor } from "~~/utils/function"
+import { formatUptime } from "~~/utils/function"
 import { ParsedContent } from "@nuxt/content/dist/runtime/types"
 
 const props = defineProps({

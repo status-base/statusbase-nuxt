@@ -3,7 +3,7 @@ const { data: urls } = await useAsyncData("urls", () => queryContent("/urls").fi
 const { data: logs } = await useAsyncData("logs", () => queryContent("/logs").find())
 const { data: incidents } = await useAsyncData("reports", () => queryContent("/incidents").sort({ title: 0 }).find())
 
-console.log({ incidents })
+const gridCount = useGridCount()
 </script>
 
 <template>
@@ -13,7 +13,7 @@ console.log({ incidents })
 
     <div class="mt-20 font-semibold inline-flex items-end">
       <h2 class="text-3xl">Uptime</h2>
-      <h3 class="text-gray-300 text-xl ml-6">Last 45 days</h3>
+      <h3 class="text-gray-300 text-xl ml-6">Last {{ gridCount }} days</h3>
     </div>
 
     <div class="flex flex-col items-center">

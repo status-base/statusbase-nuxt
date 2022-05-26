@@ -7,6 +7,7 @@ const props = defineProps({
   data: Object as PropType<Report[]>,
 })
 
+const gridCount = useGridCount()
 const getDateArray = function (start: Date, days: number) {
   var arr: Dayjs[] = []
   for (let i = days - 1; i >= 0; i--) {
@@ -17,7 +18,7 @@ const getDateArray = function (start: Date, days: number) {
 }
 
 const computedData = computed(() => {
-  let dates = getDateArray(new Date(), 45)
+  let dates = getDateArray(new Date(), gridCount.value)
   return dates.map((i) => {
     let dataGroupByDates: number[] = props.data
       ?.filter((j) => i.isSame(dayjs.utc(j.time), "day"))
