@@ -1,4 +1,4 @@
-commit=false
+commit=true
 # origin=$(git remote get-url origin)
 # if [[ $origin == *zernonia/statusbase* ]]
 # then
