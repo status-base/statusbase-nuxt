@@ -10,7 +10,7 @@
   <p align="center">
    Uptime monitoring tool & beautiful status pages <br><br> Powered by <a href="https://content.nuxtjs.org/" target="_blank"> Nuxt Content v2!</a>
     <br />
-    <strong>Free • Open Source • API ready </strong>
+    <strong>Free • Open Source • Notification</strong>
     <br />
     <br />
     <a target="_blank" href="https://statusbase.vercel.app/">View Demo</a>
@@ -35,6 +35,8 @@ On top of that, I find that this a golden opportunity to play with [Nuxt Content
 - 📖 Open-Source
 - 🚀 Host it on [platforms](https://v3.nuxtjs.org/guide/deploy/presets)
 - 📝 Write incident report in Markdown
+- 0️⃣ Zero dependency on other service
+- 🔔 Email notifications when site is down
 
 ### 🔨 Built With
 
