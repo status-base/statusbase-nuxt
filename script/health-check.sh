@@ -1,4 +1,4 @@
-commit=true
+commit=false
 # origin=$(git remote get-url origin)
 # if [[ $origin == *zernonia/statusbase* ]]
 # then
@@ -39,6 +39,8 @@ do
     else
       result="failed"
     fi
+    echo "::set-output name=$key::$key=$result"  # echo output to workflows
+  
     if [ "$result" = "success" ]; then
       break
     fi

@@ -9,6 +9,13 @@ jobs:
     name: Check all sites
     steps:
       - uses: actions/checkout@v2
-      - name: Run Shell Script
-        id: shell_script_run
+      - name: Run Health Check
+        id: health_check
         run: bash ./script/health-check.sh
+
+      - name: Run Notification
+        env:
+          HEALTH_STATUS: ${{ join(steps.health_check.outputs.*, '\n') }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: notifcation
+        run: bash ./script/notification.sh
