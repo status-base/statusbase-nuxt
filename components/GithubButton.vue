@@ -4,6 +4,7 @@ import IconUp from "~icons/carbon/play-filled-alt"
 
 const { data } = await useLazyFetch<{ stargazers_count: number }>("https://api.github.com/repos/zernonia/statusbase", {
   pick: ["stargazers_count"],
+  server: false,
 })
 </script>
 
