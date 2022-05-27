@@ -2,7 +2,7 @@
 import IconGitHub from "~icons/carbon/logo-github"
 import IconUp from "~icons/carbon/play-filled-alt"
 
-const { data } = await useFetch<{ stargazers_count: number }>("https://api.github.com/repos/zernonia/statusbase", {
+const { data } = await useLazyFetch<{ stargazers_count: number }>("https://api.github.com/repos/zernonia/statusbase", {
   pick: ["stargazers_count"],
 })
 </script>
@@ -25,7 +25,7 @@ const { data } = await useFetch<{ stargazers_count: number }>("https://api.githu
     </div>
     <div class="flex flex-col items-center mr-2">
       <IconUp class="w-3 h-3 mt-1 transform -rotate-90"></IconUp>
-      <span class="text-sm">{{ data.stargazers_count ?? 0 }}</span>
+      <span class="text-sm">{{ data?.stargazers_count ?? "-" }}</span>
     </div>
   </a>
 </template>
