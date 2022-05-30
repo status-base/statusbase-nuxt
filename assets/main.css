@@ -4,6 +4,10 @@ body {
 #__nuxt {
   @apply w-full flex flex-col items-center;
 }
+[data-v-tippy] {
+  padding: 0 0.25rem;
+  cursor: pointer;
+}
 .tippy-box[data-theme~="light"] {
   border-radius: 10px !important;
   box-shadow: 0 0 20px 4px rgb(168 183 219 / 15%), 0 4px 80px -8px rgb(144 157 179 / 25%),
