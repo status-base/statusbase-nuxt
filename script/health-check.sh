@@ -1,6 +1,6 @@
 commit=true
 origin=$(git remote get-url origin)
-if [[ $origin == *zernonia/statusbase* ]]
+if [[ $origin == *status-base/statusbase* ]]
 then
   commit=false
 fi
