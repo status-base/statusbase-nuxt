@@ -1,5 +1,9 @@
 {
-  "private": true,
+  "name": "statusbase-nuxt",
+  "version": "1.0.0",
+  "description": "A modern, zero-dependency uptime monitoring tool & status page based on GitHub Actions & Nuxt Content v2.",
+  "license": "MIT",
+  "author": "zernonia",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
