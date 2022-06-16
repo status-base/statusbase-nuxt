@@ -1,9 +1,9 @@
 commit=true
-# origin=$(git remote get-url origin)
-# if [[ $origin == *zernonia/statusbase* ]]
-# then
-#   commit=false
-# fi
+origin=$(git remote get-url origin)
+if [[ $origin == *status-base/statusbase* ]]
+then
+  commit=false
+fi
 
 FILESARRAY=()
 KEYSARRAY=()
