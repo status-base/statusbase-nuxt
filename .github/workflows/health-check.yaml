@@ -2,7 +2,8 @@ name: Scheduled Health Check
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *" # recommended: */30 * * * *   - run every 30mins
+    - cron: "*/30 * * * *" # recommended: */30 * * * *   - run every 30mins
+    #- cron: "0 0 * * *" # recommended: */30 * * * *   - run every 30mins
 jobs:
   health_check_job:
     runs-on: ubuntu-latest
