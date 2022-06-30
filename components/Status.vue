@@ -2,6 +2,7 @@
 import { formatUptime, statusColor, statusString } from "~~/utils/function"
 import { Dayjs } from "dayjs/esm"
 import { PropType } from "vue"
+import { Tippy } from "vue-tippy";
 
 const props = defineProps({
   date: Object as PropType<Dayjs>,
